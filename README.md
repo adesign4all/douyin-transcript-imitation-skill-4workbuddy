@@ -6,7 +6,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-green.svg)](https://www.python.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-> 从抖音视频链接或本地视频文件，自动下载、提取口播文案、分析视频特点、仿写一篇亲和力强且通过抖音敏感词检测的口播逐字稿，一站式产出可直接发布的三份标准文件（**原稿 / 分析 / 仿写**）。
+> 安装这个skill后，调用之。然后，直接复制一个抖音视频链接，粘贴到对话框，点击发送即可。从抖音视频链接或本地视频文件，自动下载、提取口播文案、分析视频特点、仿写一篇亲和力强且通过抖音敏感词检测的口播逐字稿，一站式产出可直接发布的三份标准文件（**原稿 / 分析 / 仿写**）。
 
 ---
 
