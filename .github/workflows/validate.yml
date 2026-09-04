@@ -1,0 +1,66 @@
+name: Validate Skill
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  validate:
+    name: Validate SKILL.md and references
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Validate SKILL.md frontmatter
+        run: |
+          python scripts/validate_skill.py SKILL.md
+
+      - name: Check Markdown file size
+        run: |
+          echo "Checking that SKILL.md is not too large..."
+          SIZE=$(wc -c < SKILL.md)
+          if [ "$SIZE" -gt 102400 ]; then
+            echo "::error::SKILL.md is too large (${SIZE} bytes, max 100KB)"
+            exit 1
+          fi
+          echo "✓ SKILL.md size: ${SIZE} bytes"
+
+      - name: Run sensitive_check.py smoke test
+        run: |
+          python scripts/sensitive_check.py "正常测试文案，不含任何敏感词"
+          python scripts/sensitive_check.py "最有效的减肥方法 100% 治愈" || true
+          echo "✓ sensitive_check.py runs"
+
+      - name: Check all required files exist
+        run: |
+          for f in SKILL.md README.md LICENSE CHANGELOG.md CONTRIBUTING.md; do
+            if [ ! -f "$f" ]; then
+              echo "::error::Required file missing: $f"
+              exit 1
+            fi
+          done
+          echo "✓ All required files present"
+
+      - name: Check directory structure
+        run: |
+          for d in references templates scripts docs examples; do
+            if [ ! -d "$d" ]; then
+              echo "::error::Required directory missing: $d"
+              exit 1
+            fi
+          done
+          echo "✓ All required directories present"

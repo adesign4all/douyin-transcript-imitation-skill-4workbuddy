@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.tox/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# 系统
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+.Trashes
+
+# Skill 运行时产物（不要提交到仓库）
+videos/
+output/
+drafts/
+*.mp4
+*.mp3
+*.wav
+*.m4a
+transcripts/
+.env
+.env.local
+
+# 虚拟环境
+venv/
+env/
+ENV/
+.venv/
+
+# 打包产物
+*.zip
+!skill-*.zip
+!release-*.zip
+
+# 大型依赖（whisper 模型、yt-dlp 二进制）
+models/
+bin/
+whisper.cpp/
+build/
+*.bin

@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this skill, please cite it as below."
+type: software
+title: "抖音逐字稿仿写 Skill"
+date-released: 2026-09-04
+version: 1.0.0
+license: MIT
+authors:
+  - family-names: "WorkBuddy"
+    given-names: "User"
+    email: "user@workbuddy.cn"
+keywords:
+  - workbuddy
+  - skill
+  - douyin
+  - transcript
+  - content-creation
+  - ai
+  - chinese
+  - voiceover
+repository-code: "https://github.com/your-username/douyin-transcript-imitation-skill"
+url: "https://github.com/your-username/douyin-transcript-imitation-skill"
+abstract: "A WorkBuddy skill for downloading Douyin videos, transcribing Chinese voiceover, analyzing viral video features, and imitating the script in a publishable format with 10-dimension sensitive-word checking."
